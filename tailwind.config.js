@@ -5,15 +5,16 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./node_modules/tw-elements/js/**/*.js",
-
-    // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/tw-elements/js/**/*.js"
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // 👇 Aqui definimos que `font-sans` vai usar a sua variável poppins
+        sans: ['var(--font-poppins)', 'sans-serif'],
+      },
     },
   },
   darkMode: "class",
-  plugins: [require("tw-elements/plugin.cjs")]
+  plugins: [require("tw-elements/plugin.cjs")],
 }

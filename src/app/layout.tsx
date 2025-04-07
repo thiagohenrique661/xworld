@@ -1,18 +1,25 @@
-import { Poppins  } from "next/font/google";
+// layout.tsx
 import "./globals.css";
+import { ReactNode } from "react";
+import { Poppins } from "next/font/google";
 
-
-export const poppins = Poppins({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-poppins",
+  weight: ["400", "500", "700"],
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+// app/layout.tsx
+
+export const metadata = {
+  title: "XWorld",
+  description: "Descrição do seu site",
+  icons: {
+    icon: "/favicon.ico", // Caminho da logo no public
+    apple: "/favicon.ico", // Se quiser usar nos dispositivos Apple também
+  },
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
