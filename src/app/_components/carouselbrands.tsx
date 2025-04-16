@@ -3,9 +3,9 @@ import Marquee from "react-fast-marquee";
 
 export function Carouselbrands() {
   return (
-    <div className="w-full bg-black py-8">
+    <div className="w-full bg-[#f7f4f4]  py-8">
       {/* Título fora do carousel */}
-      <h1 className="text-center text-2xl sm:text-3xl font-bold mb-6 text-white">
+      <h1 className="text-center text-2xl sm:text-3xl font-bold mb-6 text-[#660099]">
         MARCAS QUE REGISTRAMOS
       </h1>
 

@@ -4,14 +4,14 @@ import Marquee from "react-fast-marquee";
 
 export function Carousel() {
   return (
-    <div className="w-full bg-white py-4 overflow-hidden">
+    <div className="w-full bg-[#f7f4f4] py-4 overflow-hidden">
       <Marquee gradient={false} speed={40} pauseOnHover={false}>
         {[...Array(10)].map((_, i) => (
           <span
             key={i}
-            className="text-red-600 text-3xl font-bold uppercase mx-10"
+            className="text-[#984fd7] text-3xl font-bold uppercase mx-10"
           >
-            $ TESTANDO CAROUSEL $
+             CONECTANDO MENTES     
           </span>
         ))}
       </Marquee>

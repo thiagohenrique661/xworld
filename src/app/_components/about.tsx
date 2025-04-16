@@ -1,77 +1,84 @@
 import Image from "next/image";
-import empresa from "../../../public/empresa.png";
+import imageabout from "../../../public/imageabout.jpeg";
+import bgAbout from "../../../public/bgabout.png";
 
-const baloncontent = [
+// Corrigir os imports dos ícones
+import mortarboard from "../../../public/mortarboard.svg";
+import copyrigth from "../../../public/copyright.svg";
+import mentoring from "../../../public/mentoring.png";
+import networking from "../../../public/networking.svg";
+
+const icons = [
   {
-    icon: "/mortarboard.svg",
-    title: "+100",
-    description: "Alunos mentorados",
+    icon: mortarboard,
+    title: "Venha para",
+    description: "Escola de negócios."
   },
   {
-    icon: "/copyright.svg",
-    title: "+100",
-    description: "Marcas registradas",
+    icon: copyrigth,
+    title: "+15000",
+    description: "Marcas registradas."
   },
   {
-    icon: "/rocket.svg",
-    title: "+100",
-    description: "Negócios alavancados",
+    icon: mentoring,
+    title: "ATÉ",
+    description: "45 Minutos de mentoria."
   },
   {
-    icon: "/heart.svg",
-    title: "CUIDADO",
-    description: "Atendimento humanizado",
-  },
+    icon: networking,
+    title: "Networking",
+    description: "Rede de contatos para seu negócio."
+  }
 ];
 
 export function About() {
   return (
-    <section id="sobre" className="bg-black py-16">
-      <div className="container mx-auto px-4">
-        {/* Bloco imagem + texto */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
-          {/* Texto */}
-          <div className="bg-purple-950 rounded-2xl h-[500px] flex flex-col px-6 text-center justify-start">
-            <h2 className="text-4xl font-bold text-white mt-8">Sobre nós</h2>
+    <section
+      id="sobre"
+      className="relative py-16 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${bgAbout.src})`,
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 mt-20">
+        {/* Bloco texto + imagem */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-10 mb-12">
+          {/* Texto à esquerda */}
+          <div className="min-h-[484px] flex flex-col justify-center items-start">
+            <h2 className="text-4xl font-bold text-[#660099] mb-4 text-left">SOBRE NÓS</h2>
 
-            <div className="flex-1 flex items-center justify-center">
-              <p className="text-white text-xl sm:text-xl leading-relaxed max-w-[90%]">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br />
-                Lorem Ipsum has been the industry’s standard dummy text since the 1500s. <br /><br />
-                It has survived not only five centuries, but also the leap into electronic typesetting. <br /><br />
-                It was popularised in the 1960s with the release of Letraset sheets.
+            <div className="flex-1 flex items-center">
+              <p className="text-[#000] text-xl sm:text-xl leading-relaxed max-w-[90%] text-left">
+                {`A XWorld é uma extensão da Mundial Marcas e Patentes, empresa com mais de 40 anos de atuação no mercado brasileiro, reconhecida por sua excelência e com uma carteira ativa de mais de 15 mil clientes. 
+                A nossa empresa nasceu com o propósito de capacitar empreendedores e contribuir para o crescimento empresarial. Nosso diferencial está em tornar o aprendizado prático, acessível e aplicável à realidade do empreendedor.`}
               </p>
             </div>
           </div>
 
-          {/* Imagem */}
-          <div className="h-[500px] w-full rounded-3xl overflow-hidden">
+          {/* Imagem à direita */}
+          <div className="w-full flex justify-center">
             <Image
-              src={empresa}
-              alt="Imagem da fachada da empresa"
+              src={imageabout}
+              alt="Representantes da XWorld"
               quality={100}
-              className="w-full h-full object-cover hover:scale-110 duration-300"
+              className="rounded-xl"
               priority
             />
           </div>
         </div>
 
-        {/* 4 Quadrados */}
+        {/* Quadrados abaixo */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {baloncontent.map((item, index) => (
+          {icons.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-900 text-white rounded-2xl p-6 h-52 flex flex-col items-center justify-center text-center shadow-lg hover:bg-red-800 transition duration-300"
+              className="bg-white rounded-xl p-6 text-center transition-colors duration-300 hover:bg-[#660099] hover:text-white shadow-md"
             >
-              <Image 
-                src={item.icon} 
-                alt={item.description} 
-                width={70} 
-                height={70} 
-                className="invert"
-              />
-              <h1 className="text-2xl font-bold mt-4">{item.title}</h1>
-              <p className="text-lg mt-2">{item.description}</p>
+              <div className="flex justify-center mb-4">
+                <Image src={item.icon} alt={item.title} width={40} height={40} />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <p className="text-base">{item.description}</p>
             </div>
           ))}
         </div>
